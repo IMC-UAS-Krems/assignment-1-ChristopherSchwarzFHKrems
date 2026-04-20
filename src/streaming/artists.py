@@ -6,15 +6,17 @@ Implement the Artist class representing musicians and content creators.
 Classes to implement:
   - Artist
 """
+from __future__ import annotations
+from .tracks import Track
 class Artist:
-    def __init__(self, artist_id, name, genre):
+    def __init__(self, artist_id: str, name: str, genre: str):
         self.artist_id = artist_id
         self.name = name
         self.genre = genre
-        self.__tracks = []
+        self.tracks: list[Track] = []
 
-    def add_track(self, track):
-        self.__tracks.append(track)
+    def add_track(self, track: Track) -> None:
+        self.tracks.append(track)
 
-    def track_count(self):
-        return len(self.__tracks)
+    def track_count(self) -> int:
+        return len(self.tracks)
